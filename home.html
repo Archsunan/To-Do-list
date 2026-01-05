@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A premium, sleek To-Do List application built for productivity." />
+  <title>Streamline | Modern To-Do List</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Theme Switcher Top Right -->
+  <div class="theme-switcher">
+    <button class="theme-btn bw" onclick="setTheme('mono')" title="Mono Theme"></button>
+    <button class="theme-btn indigo" onclick="setTheme('indigo')" title="Indigo Theme"></button>
+    <button class="theme-btn emerald" onclick="setTheme('emerald')" title="Emerald Theme"></button>
+  </div>
+
+  <!-- Auth Buttons Top Left -->
+  <div id="authButtons" class="d-flex gap-2 align-items-center">
+    <!-- Dynamic Buttons from JS -->
+  </div>
+
+  <div id="todo-container">
+    <header id="header">
+      <h1>
+        <span><img src="icons8-notepad-50.png" alt="Logo"></span>
+        Streamline
+      </h1>
+      <p class="text-muted small fw-bold">ORGANIZE YOUR WORKFLOW</p>
+    </header>
+
+    <div id="todo-form">
+      <input type="text" id="input-box" placeholder="New task..." autocomplete="off" />
+      <button id="input-button" onclick="addTask()">ADD</button>
+    </div>
+
+    <ul id="list-container">
+      <!-- Tasks will appear here -->
+    </ul>
+
+    <div class="counter-container">
+      <div id="task-counters">
+        <div class="counter-item">DONE <span id="completed-counter">0</span></div>
+        <div class="counter-item">PENDING <span id="uncompleted-counter">0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

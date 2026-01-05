@@ -1,0 +1,330 @@
+:root {
+  /* Default Theme (Mono/B&W) */
+  --primary-color: #000000;
+  --primary-hover: #333333;
+  --bg-color: #ffffff;
+  --card-bg: #ffffff;
+  --text-main: #000000;
+  --text-muted: #666666;
+  --danger: #ff0000;
+  --border-color: #000000;
+  --card-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --input-bg: #ffffff;
+}
+
+[data-theme="indigo"] {
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --danger: #ef4444;
+  --border-color: #334155;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  --input-bg: #0f172a;
+}
+
+[data-theme="emerald"] {
+  --primary-color: #059669;
+  --primary-hover: #047857;
+  --bg-color: #f0fdf4;
+  --card-bg: #ffffff;
+  --text-main: #064e3b;
+  --text-muted: #6b7280;
+  --danger: #dc2626;
+  --border-color: #d1fae5;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --input-bg: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px 40px;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  background: var(--card-bg);
+  padding: 8px;
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0px 0px var(--border-color);
+  z-index: 1000;
+}
+
+.theme-btn {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.theme-btn.bw {
+  background: #000;
+}
+
+.theme-btn.indigo {
+  background: #6366f1;
+}
+
+.theme-btn.emerald {
+  background: #059669;
+}
+
+/* Container */
+#todo-container {
+  background: var(--card-bg);
+  border: 4px solid var(--border-color);
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  box-shadow: var(--card-shadow);
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#header {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+#header h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#header h1 img {
+  width: 40px;
+  height: 40px;
+  filter: grayscale(100%);
+}
+
+[data-theme="indigo"] #header h1 img {
+  filter: none;
+}
+
+[data-theme="emerald"] #header h1 img {
+  filter: hue-rotate(90deg);
+}
+
+#todo-form {
+  display: flex;
+  gap: 0;
+  margin-bottom: 30px;
+  border: 4px solid var(--border-color);
+}
+
+#input-box {
+  flex: 1;
+  background: var(--input-bg);
+  border: none;
+  padding: 15px 20px;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+#input-box::placeholder {
+  color: var(--text-muted);
+}
+
+#input-box:focus {
+  outline: none;
+}
+
+#input-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-left: 4px solid var(--border-color);
+  padding: 15px 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#input-button:hover {
+  background: var(--primary-hover);
+}
+
+/* List */
+#list-container {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: var(--card-bg);
+  border: 3px solid var(--border-color);
+  padding: 16px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px var(--border-color);
+}
+
+li.completed {
+  opacity: 0.7;
+}
+
+li.completed .task-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-text {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
+.btn-group {
+  display: flex;
+  gap: 15px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: var(--text-main);
+}
+
+.delete-btn {
+  color: var(--danger) !important;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* Custom Checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+}
+
+input[type="checkbox"]:checked {
+  background: var(--primary-color);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Counters */
+.counter-container {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 3px solid var(--border-color);
+}
+
+#task-counters {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.counter-item span {
+  background: var(--primary-color);
+  color: white;
+  padding: 2px 8px;
+  margin-left: 5px;
+}
+
+/* Auth Buttons */
+#authButtons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0px 0px var(--border-color);
+}
+
+.btn-outline-dark {
+  border: 2px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+}
+
+.btn-outline-dark:hover {
+  background: var(--primary-color) !important;
+  color: white !important;
+}
