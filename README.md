@@ -21,12 +21,3 @@ A premium, high-performance To-Do List application built with a modern Neobrutal
 ## Local Development
 
 Simply open `home.html` in any modern web browser to run the application.
-
-## Deployment
-
-This is a static web application. You can deploy it easily using:
-1. **GitHub Pages**: Upload the files to a repository and enable Pages in settings.
-2. **Vercel/Netlify**: Drag and drop the folder to their dashboard for instant deployment.
-
----
-*Created with focus on visual excellence and user experience.*
